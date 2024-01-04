@@ -1,12 +1,17 @@
-use magnus::{function, prelude::*, Error, Ruby};
+use magnus::{class, function, prelude::*, Error, Ruby};
+use rustextile::{HtmlKind, Textile};
 
-fn hello(subject: String) -> String {
-    format!("Hello from Rust, {subject}!")
+fn to_html(textile: String) -> String {
+    let parser = Textile::default().set_html_kind(HtmlKind::HTML5);
+    let html = parser.parse(textile.as_str());
+
+    return html;
 }
 
 #[magnus::init]
 fn init(ruby: &Ruby) -> Result<(), Error> {
-    let module = ruby.define_module("ChunkyProjects")?;
-    module.define_singleton_method("hello", function!(hello, 1))?;
+    let namespace = ruby.define_module("ChunkyProjects")?;
+    let internal = namespace.define_class("Internal", class::object())?;
+    internal.define_singleton_method("to_html", function!(to_html, 1))?;
     Ok(())
 }

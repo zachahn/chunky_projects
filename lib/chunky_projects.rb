@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+module ChunkyProjects
+end
+
+require_relative "chunky_projects/error"
 require_relative "chunky_projects/version"
 require_relative "chunky_projects/chunky_projects"
-
-module ChunkyProjects
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "chunky_projects/public"
