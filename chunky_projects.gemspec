@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     "{ext,lib}/**/*",
     "LICENSE",
     "README.*",
-    "*.gemfile",
+    "*.gemspec",
     "**/Cargo.*"
   ]
 
