@@ -6,7 +6,7 @@ require "standard/rake"
 require "rb_sys/extensiontask"
 
 GEMSPEC = Gem::Specification.load("chunky_projects.gemspec")
-RbSys::ExtensionTask.new("chunky_projects", GEMSPEC) do |ext|
+RbSys::ExtensionTask.new("internal", GEMSPEC) do |ext|
   ext.lib_dir = "lib/chunky_projects"
 end
 

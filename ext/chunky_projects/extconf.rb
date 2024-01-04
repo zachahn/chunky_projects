@@ -3,4 +3,4 @@
 require "mkmf"
 require "rb_sys/mkmf"
 
-create_rust_makefile("chunky_projects/chunky_projects")
+create_rust_makefile("chunky_projects/internal")
